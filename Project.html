@@ -5,26 +5,54 @@
   <meta charset="utf-8">
   <title>Time Management Baby</title>
 
-  <script>
 
-    var taskList = new list;
+</head>
+<body>
+  <p> Hello World </p>
+  <form>
+    <textarea id = "TaskInfo" rows = "7" cols = "7">
+      Type tasks here!
+    </textarea>
+    <textarea id = "TaskTime" rows = "7" cols = "7">
+      Type the task time here!
+    </textarea>
 
-    AddToList()
+    <input type="button" value="Submit" onclick="AddToList()">
+
+    <p id = "test"></p>
+
+    <p id = "debug"></p>
+
+
+  </form>
+
+  <script type = "application/javascript">
+
+
+    var taskList = [];
+    var taskListTime = [];
+    var tasksAdded = 0;
+
+
+
+    function AddToList()
     {
+      var text = document.getElementById("TaskInfo").value;
+      var timeText = document.getElementById("TaskTime").value;
+
+      taskList[tasksAdded] = text;
+      taskListTime[tasksAdded] = timeText;
+      DisplayList();
+      tasksAdded++;
+    }
+
+    function DisplayList()
+    {
+      document.getElementById("test").innerHTML += taskList[tasksAdded].toString() + "   " + taskListTime[tasksAdded].toString() + "<br/>";
 
     }
 
   </script>
-</head>
-<body>
-  <p> Hello World </p>
-  <form onsubmit="AddToList()">
-    <textarea rows = "7" cols = "7">
-      Type tasks here!
-    </textarea>
-
-    <input type="submit" value="Submit">
-  </form>
 
 </body>
 
